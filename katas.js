@@ -74,3 +74,31 @@ function count (string) {
   }
   
   moreZeros('abcde')
+
+
+  //kata from Wed 24.02 removing all # elements from the string as well as each element before the # element
+
+  function cleanString(s) {
+    //make it possbile to access each element of the string with array methods
+    s = s.split('')
+    //loop over the new array and access every element
+    for(let i =0 ; i<s.length ; i++){
+      //check if the selected element is a #
+      //if the element is a # you shoudl remove the element and the one before
+      //CARE: the index (i) of the loop keeps going on while the index of the array changes if you remove something
+      //possibilty is to replace the elements with an empty string and filter empty strings out
+      //dont forgett to reset the i of the loop
+      if(s[i] === "#"){
+        s[i] = "" 
+        s[i-1] = ""
+        s = s.filter(el => 
+          el !== ""
+        )
+         i-=2
+      }   
+    }
+    //join the array to a string again 
+     return s.join("")
+   };
+     
+     cleanString('831####jns###s#cas/*####-5##s##6+yqw87e##hfklsd-=-28##fds##')
